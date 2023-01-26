@@ -26,7 +26,11 @@ const task = database.define("task", {
   },
   belongTo: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    referencesTo: {
+        model: "user",
+        key: "id"
+    }
   }
 });
 
