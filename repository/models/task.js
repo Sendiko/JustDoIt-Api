@@ -8,7 +8,7 @@ const task = database.define("task", {
     autoIncrement: true,
     primaryKey: true,
   },
-  task: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false,
   },
