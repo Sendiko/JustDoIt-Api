@@ -22,7 +22,7 @@ module.exports = {
     try {
       const tasks = await task.findOne({
         where: {
-          id: req.params.id,
+          belongTo: req.params.id,
         },
       });
       if (tasks == null) {
