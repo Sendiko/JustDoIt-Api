@@ -78,5 +78,30 @@ module.exports = {
         message: "Server error.",
       });
     }
+  },
+  getUser: async (req, res) => {
+    try{
+      const userr = await user.findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      if(userr == null){
+        return res.status(404).json({
+          status: 404,
+          message: "user not found"
+        })
+      }
+      res.status(200).json({
+        status: 200,
+        message: "User successfully sent",
+        user: userr
+      })
+    }catch (error) {
+      res.status(500).json({
+        status: 500,
+        message: "Server error.",
+      });
+    }
   }
 };
