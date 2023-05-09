@@ -13,5 +13,6 @@ router.delete("/tasks/:id", authenticateToken, taskController.delete);
 
 router.post("/register", userController.register);
 router.post("/login", userController.login);
+router.get("/getUser/:id", authenticateToken, userController.getUser);
 
 module.exports = router;
