@@ -1,7 +1,6 @@
 const sql = require('sequelize')
-const database = new sql("justdoit_api", "root", "", {
-    host: "localhost",
-    dialect: "mysql"
+const database = new sql("justdoit_api", "root", "260705", {
+    dialect: "mariadb"
 })
 
 database.authenticate().then(() => {

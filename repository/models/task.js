@@ -18,7 +18,8 @@ const task = database.define("task", {
   },
   subtaskTo: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
+    defaultValue: 0,
   },
   priority: {
     type: DataTypes.INTEGER,
@@ -28,16 +29,19 @@ const task = database.define("task", {
     type: DataTypes.INTEGER,
     allowNull: false,
     referencesTo: {
-        model: "user",
-        key: "id"
-    }
-  }
+      model: "user",
+      key: "id",
+    },
+  },
 });
 
-task.sync().then(() => {
-    console.log('table created!')
-}).catch((error) => {
+task
+  .sync()
+  .then(() => {
+    console.log("table created!");
+  })
+  .catch((error) => {
     console.error(error);
-})
+  });
 
 module.exports = task;

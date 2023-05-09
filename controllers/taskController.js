@@ -20,7 +20,7 @@ module.exports = {
   },
   index: async (req, res) => {
     try {
-      const tasks = await task.findOne({
+      const tasks = await task.findAll({
         where: {
           belongTo: req.params.id,
         },
@@ -34,7 +34,7 @@ module.exports = {
         res.status(200).json({
           status: 200,
           message: "data successfully",
-          task: tasks,
+          tasks: tasks,
         });
       }
     } catch (error) {
@@ -52,7 +52,7 @@ module.exports = {
         description: req.body.description,
         subtaskTo: req.body.subtaskTo,
         priority: req.body.priority,
-        belongTo: users.name
+        belongTo: users.id
       });
       res.status(201).json({
         status: 201,
